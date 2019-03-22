@@ -17,8 +17,8 @@ lang: en-US
 title: The Prediction Lab & The City of Salem
 email: info@thepredictionlab.com
 description: "Detroit Lake Predictions: TPL & City of Salem"
-baseurl:  # the subpath of your site, e.g. /blog
-url: http://thepredictionlabllc.github.io/detroit-lake-predictions/ # the base hostname & protocol for your site, e.g. http://example.com
+baseurl:  /detroit-lake-predictions/ # the subpath of your site, e.g. /blog
+url: https://thepredictionlabllc.github.io # the base hostname & protocol for your site, e.g. http://example.com
 author:
   name: James Watson
   #twitter: Towlette_Pettetucci
