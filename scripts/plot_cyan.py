@@ -47,7 +47,7 @@ osm_img = cimgt.QuadtreeTiles() # spoofed, downloaded street map << Sat image
 
 ################ SATELLITE CHL-A ####################
 #path = "./Data/or_detroit_lake_dashboard/proc_dashboard_data/"
-path = "/tmp/nj_oradell_reservoir_dashboard/proc_dashboard_data/"
+path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
 files = sorted(glob.glob(path+"cyan_map/*.csv"))
 
 ##! find colorbounds
