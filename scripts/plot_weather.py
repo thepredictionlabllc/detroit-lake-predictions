@@ -10,7 +10,7 @@ today = date.today()
 
 ### CUMSUM WEATHER ###
 #path = "./Data/or_detroit_lake_dashboard/proc_dashboard_data/"
-path = "/tmp/nj_oradell_reservoir_dashboard/proc_dashboard_data/"
+path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
 pwd = path+"weather_tab/"
 #data = pd.read_csv(pwd + "or_detroit_lake_gridmet.csv",parse_dates=["date"])
 data = pd.read_csv(pwd + "nj_oradell_reservoir_gridmet.csv",parse_dates=["date"])
