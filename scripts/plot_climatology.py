@@ -11,10 +11,10 @@ today = date.today()
 
 ######## Climatology for long-term forecast
 ## Data
-path = "/tmp/nj_oradell_reservoir_dashboard/proc_dashboard_data/"
+path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
 pwd = path+"now_cast_tab/"
 #data = pd.read_csv(pwd + "or_detroit_lake_nowcast_expected_longrun_predictions.csv",parse_dates=["date"])
-data = pd.read_csv(pwd + "nj_oradell_reservoir_nowcast_longrun_predictions.csv",parse_dates=["date"])
+data = pd.read_csv(pwd + "or_detroit_lake_nowcast_longrun_predictions.csv",parse_dates=["date"])
 
 
 data["month"] = data["date"].dt.month
