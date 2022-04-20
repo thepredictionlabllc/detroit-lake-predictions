@@ -13,7 +13,7 @@ today = date.today()
 path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
 pwd = path+"weather_tab/"
 #data = pd.read_csv(pwd + "or_detroit_lake_gridmet.csv",parse_dates=["date"])
-data = pd.read_csv(pwd + "nj_oradell_reservoir_gridmet.csv",parse_dates=["date"])
+data = pd.read_csv(pwd + "or_detroit_lake_gridmet.csv",parse_dates=["date"])
 #files = glob.glob("./Data/proc_dashboard_data/weather_tab/*.csv")
 #data = pd.read_csv(files[0],parse_dates=["date"])
 data["month"] = data["date"].dt.month
