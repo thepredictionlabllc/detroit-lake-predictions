@@ -95,7 +95,7 @@ date_time = data.date[0].strftime("%m/%d/%Y")
 plt.title("CyAN (cells per ml): " + date_time)
 
 center_pt = [np.mean(data.lat), np.mean(data.lon)] # lat/lon of One World Trade Center in NYC
-zoom = 0.025 # for zooming out of center point
+zoom = 0.05 # for zooming out of center point
 extent = [center_pt[1]-(zoom*2.0),center_pt[1]+(zoom*2.0), \
 	center_pt[0]-zoom,center_pt[0]+zoom] # adjust to zoom
 ax1.set_extent(extent) # set extents
