@@ -1,7 +1,7 @@
 ---
 title: "May 09, 2022"
 excerpt: "HAB update"
-image: /assets/images/oradell.jpg
+image: /assets/images/detroit.jpg
 tags: 
   - hab
   - prediction
