@@ -1,7 +1,7 @@
 ---
 title: "{abb_date}"
 excerpt: "HAB update"
-image: /assets/images/oradell.jpg
+image: /assets/images/detroit.jpg
 tags: 
   - hab
   - prediction
