@@ -13,7 +13,13 @@ from PIL import Image
 from scipy.interpolate import griddata
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
+from pydoc import importfile
 
+username =  os.environ.get('USER')
+
+mapbox = importfile(f"/home/{username}/.mapbox/credentials")
+
+MAPBOX_KEY = mapbox.mapbox_id
 
 ################ SATELLITE CHL-A ####################
 #path = "./Data/or_detroit_lake_dashboard/proc_dashboard_data/"
@@ -55,7 +61,7 @@ df = pd.DataFrame(df)
 import plotly.figure_factory as ff
 import plotly.express as px
 
-px.set_mapbox_access_token(open(".mapbox_token").read())
+px.set_mapbox_access_token(MAPBOX_KEY)
 date_time = data.date[0].strftime("%m/%d/%Y")
 title = "CyAN (cells per ml): " + date_time
 
