@@ -39,7 +39,7 @@ rvb = make_colormap(
 ######################! Data
 path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
 pwd = path+"now_cast_tab/"
-data = pd.read_csv(pwd + "nj_oradell_reservoir_nowcast_multiclass_predictions_current.csv",parse_dates=["date"])
+data = pd.read_csv(pwd + "or_detroit_lake_nowcast_multiclass_predictions_current.csv",parse_dates=["date"])
 lag = 14 #number of days to look behind
 probs_14 = np.asarray([data.iloc[[-lag]]['none_bloom_p'],data.iloc[[-lag]]['low_bloom_p'],\
 			data.iloc[[-lag]]['mid_bloom_p'],data.iloc[[-lag]]['high_bloom_p']])
