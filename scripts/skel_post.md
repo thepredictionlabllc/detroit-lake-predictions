@@ -6,6 +6,9 @@ tags:
   - hab
   - prediction
 ---
+
+Click here to see the live and interactive [Harmful Algal Bloom dashboard](https://detroitlake.clrwater.io/).
+
 ## 7-day Look Ahead Bloom Forecast
 Below are pie charts describing the __probability of a cyanobacterial bloom__. The one on the left describes the predictions from two weeks ago, and the one on the right describes the latest prediction, for the coming week. 
 ![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/{shrink_date}/Fig_prediction.png)
