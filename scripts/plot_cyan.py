@@ -12,7 +12,7 @@ from urllib.request import urlopen, Request
 from PIL import Image
 from scipy.interpolate import griddata
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-
+import os
 from pydoc import importfile
 
 username =  os.environ.get('USER')
