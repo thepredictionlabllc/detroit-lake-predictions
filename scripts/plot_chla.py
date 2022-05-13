@@ -53,7 +53,7 @@ y = np.asarray(df.lat)
 z = np.asarray(df.Chlorophyll)
 ID = np.where(z!=0)[0]
 x = x[ID]; y = y[ID];
-z = np.exp(z[ID])
+z = z[ID]
 #z = z / z.max()
 #z = np.round(z * 100)
 
