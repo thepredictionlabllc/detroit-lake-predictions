@@ -40,7 +40,7 @@ rvb = make_colormap(
 #path = "./Data/or_detroit_lake_dashboard/proc_dashboard_data/"
 path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
 pwd = path+"now_cast_tab/"
-data = pd.read_csv(pwd + "or_detroit_lake_nowcast_current_predictions.csv",parse_dates=["date"])
+data = pd.read_csv(pwd + "or_detroit_lake_nowcast_predictions_current.csv",parse_dates=["date"])
 #data = pd.read_csv(pwd + "or_detroit_lake_nowcast_predictions.csv",parse_dates=["date"])
 lag = 14
 
