@@ -82,7 +82,7 @@ ax2.annotate('+7 days',
     color='k',zorder=21,fontsize=23)
 
 plt.tight_layout()
-plt.savefig("./Figs/Fig_prediction.png",dpi=600)
+#plt.savefig("./Figs/Fig_prediction.png",dpi=600)
 
 
 
