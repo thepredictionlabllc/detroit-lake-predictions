@@ -50,7 +50,7 @@ probs_1 = np.asarray([data.iloc[[-1]]['none_bloom_p'],data.iloc[[-1]]['low_bloom
 ######################! Plot double pie
 fig, (ax1,ax2) = plt.subplots(1,2,figsize=(13,5))
 
-labels = ('Low Levels', 'Algae Present', 'Algal Bloom')
+labels = ('No Detection', 'Algae Present', 'Algal Bloom')
 probs  = probs_14.flatten()
 probs = [probs[0],probs[1]+probs[2],probs[3]]
 probs = probs / np.sum(probs)
