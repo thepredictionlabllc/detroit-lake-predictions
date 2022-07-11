@@ -38,13 +38,17 @@ X = 3; # number of trailing days to average over
 lons = data["lon"]
 lats = data["lat"]
 df = data.copy()
+allChl = df["Chlorophyll"].to_numpy().reshape((-1,1))
+
+# get lagged readings
 for i in np.arange(-X,-1):
     df1 = pd.read_csv(files[i],parse_dates=["date"])
-    df["Chlorophyll"] = (df["Chlorophyll"] + griddata((df1["lon"],df1["lat"]), df1["Chlorophyll"], 
-            (lons, lats), method='nearest')) / 2
+    newChl = griddata((df1["lon"],df1["lat"]), df1["Chlorophyll"],(lons, lats), method='nearest').reshape((-1,1))
+    allChl = np.hstack([allChl, newChl])
+
+df["Chlorophyll"] = np.nanmean(allChl, 1)
 
 
-	
 
 #################### MAKE MAP (average of last week) ################
 #! Data to plot
