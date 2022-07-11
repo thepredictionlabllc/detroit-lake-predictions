@@ -82,5 +82,5 @@ fig = ff.create_hexbin_mapbox(
 fig.update_layout(title_text=title,title_y=0.92,title_x=0.2)
 #fig.update_layout(mapbox_style='open-street-map')
 fig.update_layout(mapbox_style="satellite")
-fig.write_image("Figs/Fig_chla_week.png",scale=2)
+fig.write_image("Figs/Fig_chla.png",scale=2)
 plt.close("all")
