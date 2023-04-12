@@ -80,7 +80,7 @@ nw = sns.lineplot(x="dayofyear", y="Precip_cumsum",hue="year",
 plt.legend(frameon=False)
 plt.plot(data.iloc[-1]["dayofyear"], data.iloc[-1]["Precip_cumsum"],'r.',ms=20)
 plt.xlabel("Time of year")
-plt.ylabel("Cumulative Precipitation (mm/day)")
+plt.ylabel("Cumulative Precipitation (mm)")
 tics = np.arange(15,365,30)
 labs = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 plt.xticks(tics,labs)
