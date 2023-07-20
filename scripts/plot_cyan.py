@@ -75,7 +75,7 @@ fig = ff.create_hexbin_mapbox(
     data_frame=df, lat="y", lon="x", color="z",
     nx_hexagon=20, opacity=0.5,
     range_color=[6000,100000],
-    labels={"color": "Cells/ml"},agg_func=np.mean,color_continuous_scale="jet")
+    labels={"color": "Cells/ml"},agg_func=np.nanmean,color_continuous_scale="jet")
 fig.update_layout(title_text=title,title_y=0.92,title_x=0.2)
 fig.update_layout(mapbox_style="satellite")
 fig.write_image("Figs/Fig_cyan.png",scale=2)
