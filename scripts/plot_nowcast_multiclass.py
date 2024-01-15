@@ -99,52 +99,52 @@ plt.show()
 
 # Old figure without legend
 ######################! Plot double pie
-fig, (ax1,ax2) = plt.subplots(1,2,figsize=(13,5))
+# fig, (ax1,ax2) = plt.subplots(1,2,figsize=(13,5))
 
-labels = ('No Detection', 'Algae Present', 'Algal Bloom')
-probs  = probs_14.flatten()
-probs = [probs[0],probs[1]+probs[2],probs[3]]
-probs = probs / np.sum(probs)
-sizes  = probs * 100
-explode = np.ones(len(sizes))*0.03
-colors = cm.Greens(np.linspace(0.15,.7,len(probs)))
-patches, texts, autotexts = ax1.pie(sizes, colors = colors, labels=labels, autopct='%1.1f%%', startangle=95, pctdistance=0.8, explode = explode)
-texts[0].set_fontsize(14)
-texts[1].set_fontsize(14)
-texts[2].set_fontsize(14)
-#texts[3].set_fontsize(14)
-centre_circle = plt.Circle((0,0),0.30,fc='white')
-ax1.add_artist(centre_circle)
-ax1.axis('equal')  
-ax1.annotate('-14days',
-    xy=(0, 0),  # theta, radius
-    horizontalalignment='center',
-    verticalalignment='center',
-    color='k',zorder=21,fontsize=23)
+# labels = ('No Detection', 'Algae Present', 'Algal Bloom')
+# probs  = probs_14.flatten()
+# probs = [probs[0],probs[1]+probs[2],probs[3]]
+# probs = probs / np.sum(probs)
+# sizes  = probs * 100
+# explode = np.ones(len(sizes))*0.03
+# colors = cm.Greens(np.linspace(0.15,.7,len(probs)))
+# patches, texts, autotexts = ax1.pie(sizes, colors = colors, labels=labels, autopct='%1.1f%%', startangle=95, pctdistance=0.8, explode = explode)
+# texts[0].set_fontsize(14)
+# texts[1].set_fontsize(14)
+# texts[2].set_fontsize(14)
+# #texts[3].set_fontsize(14)
+# centre_circle = plt.Circle((0,0),0.30,fc='white')
+# ax1.add_artist(centre_circle)
+# ax1.axis('equal')  
+# ax1.annotate('-14days',
+#     xy=(0, 0),  # theta, radius
+#     horizontalalignment='center',
+#     verticalalignment='center',
+#     color='k',zorder=21,fontsize=23)
 
-labels = ('No Detection', 'Algae Present', 'Algal Bloom')
-probs  = probs_1.flatten()
-probs = [probs[0],probs[1]+probs[2],probs[3]]
-probs = probs / np.sum(probs)
-sizes  = probs * 100
-explode = np.ones(len(sizes))*0.03
-colors = cm.Reds(np.linspace(0.15,.7,len(probs)))
-patches, texts, autotexts = ax2.pie(sizes, colors = colors, labels=labels, autopct='%1.1f%%', startangle=95, pctdistance=0.8, explode = explode)
-texts[0].set_fontsize(14)
-texts[1].set_fontsize(14)
-texts[2].set_fontsize(14)
-#texts[3].set_fontsize(14)
-centre_circle = plt.Circle((0,0),0.30,fc='white')
-ax2.add_artist(centre_circle)
-ax2.axis('equal')
-ax2.annotate('+7days',
-    xy=(0, 0),  # theta, radius
-    horizontalalignment='center',
-    verticalalignment='center',
-    color='k',zorder=21,fontsize=23)
+# labels = ('No Detection', 'Algae Present', 'Algal Bloom')
+# probs  = probs_1.flatten()
+# probs = [probs[0],probs[1]+probs[2],probs[3]]
+# probs = probs / np.sum(probs)
+# sizes  = probs * 100
+# explode = np.ones(len(sizes))*0.03
+# colors = cm.Reds(np.linspace(0.15,.7,len(probs)))
+# patches, texts, autotexts = ax2.pie(sizes, colors = colors, labels=labels, autopct='%1.1f%%', startangle=95, pctdistance=0.8, explode = explode)
+# texts[0].set_fontsize(14)
+# texts[1].set_fontsize(14)
+# texts[2].set_fontsize(14)
+# #texts[3].set_fontsize(14)
+# centre_circle = plt.Circle((0,0),0.30,fc='white')
+# ax2.add_artist(centre_circle)
+# ax2.axis('equal')
+# ax2.annotate('+7days',
+#     xy=(0, 0),  # theta, radius
+#     horizontalalignment='center',
+#     verticalalignment='center',
+#     color='k',zorder=21,fontsize=23)
 
-plt.tight_layout()
-plt.savefig("./Figs/Fig_prediction.png",dpi=600)
+# plt.tight_layout()
+# plt.savefig("./Figs/Fig_prediction.png",dpi=600)
 
 
 
