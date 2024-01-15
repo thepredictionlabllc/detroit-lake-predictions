@@ -42,10 +42,19 @@ fig, axs = plt.subplots(figsize=(8, 4.5))
 
 sns.lineplot(x="dayofyear", y="Air_Temp_cumsum",hue="year", data=data[data["year"]!=d1],
         palette=sns.color_palette('Greys', as_cmap = True))
+
+# Plot the temperature data for the year 2023 (or any other specific year)
+sns.lineplot(x="dayofyear", y="Air_Temp_cumsum", hue="year",
+             data=data[data["year"] == d2], palette=['orange'])
+
 cl = sns.lineplot(x="dayofyear", y="Air_Temp_cumsum", 
-        data=climat,palette=['orange'], linewidth=3,label="Average")
+        data=climat, linewidth=3, color="#FFBF00", label="Average")
+
 nw = sns.lineplot(x="dayofyear", y="Air_Temp_cumsum",hue="year", 
-        data=data[data["year"]==d1],palette=['red'], linewidth=3)
+        data=data[data["year"]==d1], palette=['red'], linewidth=3)
+
+
+
 
 plt.legend(frameon=False)
 plt.plot(data.iloc[-1]["dayofyear"], data.iloc[-1]["Air_Temp_cumsum"],'r.',ms=20)
@@ -72,10 +81,16 @@ fig, axs = plt.subplots(figsize=(8, 4.5))
 
 sns.lineplot(x="dayofyear", y="Precip_cumsum",hue="year", data=data[data["year"]!=d1],
         palette=sns.color_palette('Greys', as_cmap = True))
+
+# Plot the temperature data for the year 2023 (or any other specific year)
+sns.lineplot(x="dayofyear", y="Precip_cumsum", hue="year",
+             data=data[data["year"] == d2], palette=['orange'])
+
 cl = sns.lineplot(x="dayofyear", y="Precip_cumsum", 
-        data=climat,palette=['orange'], linewidth=3,label="Average")
+        data=climat, linewidth=3, color="#FFBF00", label="Average")
+
 nw = sns.lineplot(x="dayofyear", y="Precip_cumsum",hue="year", 
-        data=data[data["year"]==d1],palette=['red'], linewidth=3)
+        data=data[data["year"]==d1], palette=['red'], linewidth=3)
 
 plt.legend(frameon=False)
 plt.plot(data.iloc[-1]["dayofyear"], data.iloc[-1]["Precip_cumsum"],'r.',ms=20)
