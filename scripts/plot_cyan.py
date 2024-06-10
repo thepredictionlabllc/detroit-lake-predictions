@@ -14,6 +14,12 @@ from scipy.interpolate import griddata
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 import os
 from pydoc import importfile
+import botocore.session
+import s3fs
+
+session = botocore.session.get_session()
+AWS_SECRET = session.get_credentials().secret_key
+AWS_ACCESS_KEY = session.get_credentials().access_key 
 
 username =  os.environ.get('USER')
 
@@ -23,11 +29,13 @@ MAPBOX_KEY = mapbox.mapbox_id
 
 ################ SATELLITE CHL-A ####################
 #path = "./Data/or_detroit_lake_dashboard/proc_dashboard_data/"
-path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
-files = sorted(glob.glob(path+"cyan_map/*.csv"))
+# path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
+# files = sorted(glob.glob(path+"cyan_map/*.csv"))
+
+files = sorted(s3.glob(f"s3://cwa-assets/or_detroit_lake/assets/cyan_map/*.csv"))
 
 #! Latest data
-data = pd.read_csv(files[-1],parse_dates=["date"])
+data = pd.read_csv(f"s3://{files[-1]}",parse_dates=["date"])
 data["month"] = data["date"].dt.month
 data["week"] = data["date"].dt.week
 data["year"] = data["date"].dt.year

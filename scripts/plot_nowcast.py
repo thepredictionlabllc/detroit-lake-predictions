@@ -7,7 +7,12 @@ from collections import OrderedDict
 import matplotlib.colors as mcolors
 import seaborn as sns
 import pandas as pd
+import botocore.session
+import s3fs
 
+session = botocore.session.get_session()
+AWS_SECRET = session.get_credentials().secret_key
+AWS_ACCESS_KEY = session.get_credentials().access_key 
 
 ####### PREDICTION PLOT
 sns.set_style('white')
@@ -38,10 +43,13 @@ rvb = make_colormap(
 
 ######################! Data
 #path = "./Data/or_detroit_lake_dashboard/proc_dashboard_data/"
-path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
-pwd = path+"now_cast_tab/"
-data = pd.read_csv(pwd + "or_detroit_lake_nowcast_predictions_current.csv",parse_dates=["date"])
+# path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
+# pwd = path+"now_cast_tab/"
+# data = pd.read_csv(pwd + "or_detroit_lake_nowcast_predictions_current.csv",parse_dates=["date"])
 #data = pd.read_csv(pwd + "or_detroit_lake_nowcast_predictions.csv",parse_dates=["date"])
+
+data = pd.read_csv(f"s3://cwa-assets/or_detroit_lake/assets/now_cast_tab/or_detroit_lake_nowcast_predictions_current.csv", parse_dates=['date'])
+
 lag = 14
 
 ######################! Plot double pie

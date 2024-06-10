@@ -5,17 +5,25 @@ import matplotlib.cm as cm
 from datetime import date
 import pandas as pd
 import runpy
+import botocore.session
+import s3fs
+
+session = botocore.session.get_session()
+AWS_SECRET = session.get_credentials().secret_key
+AWS_ACCESS_KEY = session.get_credentials().access_key 
+
 today = date.today()
 
 
 
 ######## Climatology for long-term forecast
 ## Data
-path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
-pwd = path+"now_cast_tab/"
-#data = pd.read_csv(pwd + "or_detroit_lake_nowcast_expected_longrun_predictions.csv",parse_dates=["date"])
-data = pd.read_csv(pwd + "or_detroit_lake_nowcast_predictions_longrun_detect.csv",parse_dates=["date"])
+# path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
+# pwd = path+"now_cast_tab/"
+# #data = pd.read_csv(pwd + "or_detroit_lake_nowcast_expected_longrun_predictions.csv",parse_dates=["date"])
+# data = pd.read_csv(pwd + "or_detroit_lake_nowcast_predictions_longrun_detect.csv",parse_dates=["date"])
 
+data = pd.read_csv(f"s3://cwa-assets/{lake_name}/assets/now_cast_tab/or_detroit_lake_nowcast_predictions_longrun_detect.csv",parse_dates=["date"])
 
 data["month"] = data["date"].dt.month
 data["week"] = data["date"].dt.week
