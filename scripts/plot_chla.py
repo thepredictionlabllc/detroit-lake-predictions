@@ -14,6 +14,12 @@ from scipy.interpolate import griddata
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 import os
 from pydoc import importfile
+import botocore.session
+import s3fs
+
+session = botocore.session.get_session()
+AWS_SECRET = session.get_credentials().secret_key
+AWS_ACCESS_KEY = session.get_credentials().access_key 
 
 username =  os.environ.get('USER')
 
@@ -26,8 +32,10 @@ MAPBOX_KEY = mapbox.mapbox_id
 path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
 files = sorted(glob.glob(path+"satellite_map/*.csv"))
 
+files = sorted(s3.glob(f"s3://cwa-assets/or_detroit_lake/assets/satellite_map/*.csv"))
+
 #! Latest data
-data = pd.read_csv(files[-1],parse_dates=["date"])
+data = pd.read_csv(f"s3://{files[-1]}",parse_dates=["date"])
 data["month"] = data["date"].dt.month
 data["week"] = data["date"].dt.week
 data["year"] = data["date"].dt.year
@@ -42,7 +50,7 @@ allChl = df["Chlorophyll"].to_numpy().reshape((-1,1))
 
 # get lagged readings
 for i in np.arange(-X,-1):
-    df1 = pd.read_csv(files[i],parse_dates=["date"])
+    df1 = pd.read_csv(f"s3://{files[i]}",parse_dates=["date"])
     newChl = griddata((df1["lon"],df1["lat"]), df1["Chlorophyll"],(lons, lats), method='nearest').reshape((-1,1))
     allChl = np.hstack([allChl, newChl])
 
