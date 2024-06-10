@@ -27,6 +27,7 @@ for year_ in range(2010, current_year + 1):
 data = pd.concat(lst_)
 today = date.today()
 
+data = data.drop_duplicates().reset_index(drop=True)
 
 
 ### CUMSUM WEATHER ###
