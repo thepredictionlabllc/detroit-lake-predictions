@@ -25,7 +25,7 @@ today = date.today()
 # #data = pd.read_csv(pwd + "or_detroit_lake_nowcast_expected_longrun_predictions.csv",parse_dates=["date"])
 # data = pd.read_csv(pwd + "or_detroit_lake_nowcast_predictions_longrun_detect.csv",parse_dates=["date"])
 
-data = pd.read_csv(f"s3://cwa-assets/{lake_name}/assets/now_cast_tab/or_detroit_lake_nowcast_predictions_longrun_detect.csv",parse_dates=["date"])
+data = pd.read_csv(f"s3://cwa-assets/or_detroit_lake_dashboard/assets/now_cast_tab/or_detroit_lake_nowcast_predictions_longrun_detect.csv",parse_dates=["date"])
 
 data["month"] = data["date"].dt.month
 data["week"] = data["date"].dt.week

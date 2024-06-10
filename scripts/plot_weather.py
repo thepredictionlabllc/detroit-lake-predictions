@@ -3,13 +3,15 @@ import pandas as pd
 import glob
 import matplotlib.pyplot as plt
 import seaborn as sns
-from datetime import date
+from datetime import date, datetime
 import botocore.session
 import s3fs
 
 session = botocore.session.get_session()
 AWS_SECRET = session.get_credentials().secret_key
 AWS_ACCESS_KEY = session.get_credentials().access_key 
+
+s3 = s3fs.S3FileSystem(anon=False, key=AWS_ACCESS_KEY, secret=AWS_SECRET)
 
 today = date.today()
 today = date.today()
