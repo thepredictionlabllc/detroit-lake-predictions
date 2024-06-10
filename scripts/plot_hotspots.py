@@ -18,11 +18,12 @@ from mpl_toolkits import axes_grid1
 import botocore.session
 import s3fs
 
-s3 = s3fs.S3FileSystem(anon=False, key=AWS_ACCESS_KEY, secret=AWS_SECRET)
-
 session = botocore.session.get_session()
 AWS_SECRET = session.get_credentials().secret_key
 AWS_ACCESS_KEY = session.get_credentials().access_key 
+
+s3 = s3fs.S3FileSystem(anon=False, key=AWS_ACCESS_KEY, secret=AWS_SECRET)
+
 
 def add_colorbar(im, aspect=20, pad_fraction=0.5, **kwargs):
     """Add a vertical color bar to an image plot."""
