@@ -4,18 +4,37 @@ import glob
 import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import date
+import botocore.session
+import s3fs
+
+session = botocore.session.get_session()
+AWS_SECRET = session.get_credentials().secret_key
+AWS_ACCESS_KEY = session.get_credentials().access_key 
+
+today = date.today()
+today = date.today()
+current_year = datetime.now().year
+lake_name = "or_detroit_lake"
+
+lst_ = []
+for year_ in range(2010, current_year + 1):
+	print(year_)
+	df = pd.read_csv(f"s3://cwa-assets/nj_oradell_reservoir/assets/weather_tab/{lake_name}_gridmet_{year_}.csv", parse_dates=["date"])
+	lst_.append(df)
+
+data = pd.concat(lst_)
 today = date.today()
 
 
 
 ### CUMSUM WEATHER ###
 #path = "./Data/or_detroit_lake_dashboard/proc_dashboard_data/"
-path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
-pwd = path+"weather_tab/"
-#data = pd.read_csv(pwd + "or_detroit_lake_gridmet.csv",parse_dates=["date"])
-data = pd.read_csv(pwd + "or_detroit_lake_gridmet.csv",parse_dates=["date"])
-#files = glob.glob("./Data/proc_dashboard_data/weather_tab/*.csv")
-#data = pd.read_csv(files[0],parse_dates=["date"])
+# path = "/tmp/or_detroit_lake_dashboard/proc_dashboard_data/"
+# pwd = path+"weather_tab/"
+# #data = pd.read_csv(pwd + "or_detroit_lake_gridmet.csv",parse_dates=["date"])
+# data = pd.read_csv(pwd + "or_detroit_lake_gridmet.csv",parse_dates=["date"])
+# #files = glob.glob("./Data/proc_dashboard_data/weather_tab/*.csv")
+# #data = pd.read_csv(files[0],parse_dates=["date"])
 data["month"] = data["date"].dt.month
 data["week"] = data["date"].dt.week
 data["year"] = data["date"].dt.year
