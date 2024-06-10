@@ -7,7 +7,14 @@ from collections import OrderedDict
 import matplotlib.colors as mcolors
 import seaborn as sns
 import pandas as pd
+import botocore.session
+import s3fs
 
+session = botocore.session.get_session()
+AWS_SECRET = session.get_credentials().secret_key
+AWS_ACCESS_KEY = session.get_credentials().access_key 
+
+s3 = s3fs.S3FileSystem(anon=False, key=AWS_ACCESS_KEY, secret=AWS_SECRET)
 
 ####### PREDICTION PLOT
 sns.set_style('white')

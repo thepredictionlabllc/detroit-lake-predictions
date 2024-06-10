@@ -18,6 +18,8 @@ from mpl_toolkits import axes_grid1
 import botocore.session
 import s3fs
 
+s3 = s3fs.S3FileSystem(anon=False, key=AWS_ACCESS_KEY, secret=AWS_SECRET)
+
 session = botocore.session.get_session()
 AWS_SECRET = session.get_credentials().secret_key
 AWS_ACCESS_KEY = session.get_credentials().access_key 
@@ -83,7 +85,7 @@ lons = data["lon"]
 lats = data["lat"]
 df = data.copy()
 for i in np.arange(-X,-1):
-    df1 = pd.read_csv(files[i],parse_dates=["date"])
+    df1 = pd.read_csv(f"s3://{files[i]}",parse_dates=["date"])
     df["Chlorophyll"] = (df["Chlorophyll"] + griddata((df1["lon"],df1["lat"]), df1["Chlorophyll"], 
             (lons, lats), method='nearest')) / 2
 

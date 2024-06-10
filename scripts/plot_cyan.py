@@ -21,6 +21,8 @@ session = botocore.session.get_session()
 AWS_SECRET = session.get_credentials().secret_key
 AWS_ACCESS_KEY = session.get_credentials().access_key 
 
+s3 = s3fs.S3FileSystem(anon=False, key=AWS_ACCESS_KEY, secret=AWS_SECRET)
+
 username =  os.environ.get('USER')
 
 mapbox = importfile(f"/home/{username}/.mapbox/credentials")
@@ -50,7 +52,7 @@ allCyan = df["log_CI_cells_mL"].to_numpy().reshape((-1,1))
 
 # get lagged readings
 for i in np.arange(-X,-1):
-    df1 = pd.read_csv(files[i],parse_dates=["date"])
+    df1 = pd.read_csv(f"s3://{files[i]}",parse_dates=["date"])
     newCyan = griddata((df1["lon"],df1["lat"]), df1["log_CI_cells_mL"],(lons, lats), method='nearest').reshape((-1,1))
     allCyan = np.hstack([allCyan, newCyan])
 
