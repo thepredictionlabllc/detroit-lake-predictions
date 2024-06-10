@@ -19,7 +19,7 @@ lake_name = "or_detroit_lake"
 lst_ = []
 for year_ in range(2010, current_year + 1):
 	print(year_)
-	df = pd.read_csv(f"s3://cwa-assets/nj_oradell_reservoir/assets/weather_tab/{lake_name}_gridmet_{year_}.csv", parse_dates=["date"])
+	df = pd.read_csv(f"s3://cwa-assets/{lake_name}/assets/weather_tab/{lake_name}_gridmet_{year_}.csv", parse_dates=["date"])
 	lst_.append(df)
 
 data = pd.concat(lst_)
