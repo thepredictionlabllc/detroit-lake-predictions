@@ -86,7 +86,7 @@ some_lon = -122.18866619594027
 
 fig = ff.create_hexbin_mapbox(
     data_frame=df, lat="y", lon="x", color="z",
-    nx_hexagon=5, opacity=0.5,
+    nx_hexagon=30, opacity=0.5,
     range_color=[6000, 100000],
     labels={"color": "Cells/ml"}, agg_func=np.mean, color_continuous_scale="jet"
 )
